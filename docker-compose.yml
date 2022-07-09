@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  sshd:
+    image: tludewig/sshd:1.0-alpine
+    container_name: sshd
+    restart: unless-stopped
+    ports:
+      - 30022:22
+    volumes:
+      - ./store/root:/root
+      - ./store/etc:/etc/ssh
+      - ./store/data:/data
+      - ./store/log:/var/log
